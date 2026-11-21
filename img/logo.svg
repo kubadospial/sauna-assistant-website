@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 22 60 60" role="img" aria-label="Sauna Assistant">
+  <!-- The app's sauna ladle: amber sun, steam, birch-and-walnut handle, copper stone in the bowl. -->
+  <circle cx="54" cy="26.2" r="3.2" fill="#D97706"/>
+  <g fill="none" stroke="#C9B79F" stroke-width="2.2" stroke-linecap="round">
+    <path d="M40,43 C37,39.5 43,37 40,32.5"/>
+    <path d="M46,42 C43,37.5 49,34.5 46,29.5"/>
+    <path d="M52,43 C49,39.5 55,37 52,32.5"/>
+  </g>
+  <path d="M60,58 L68,51" stroke="#E2CDAE" stroke-width="6" stroke-linecap="round"/>
+  <path d="M67,52 L80,40" stroke="#7A5236" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="46" cy="58" rx="18" ry="4" fill="#CDB592"/>
+  <path d="M46,46 Q47.6,53.4 53.5,55 Q47.6,56.6 46,64 Q44.4,56.6 38.5,55 Q44.4,53.4 46,46 Z" fill="#C27A4E"/>
+  <path d="M28,58 A18,4 0 0,0 64,58 C64,71 56,80 46,80 C36,80 28,71 28,58 Z" fill="#E6D3B8"/>
+</svg>

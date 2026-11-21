@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pl" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sauna Assistant – asystent głosowy do sauny</title>
+  <meta name="description" content="Sauna Assistant: asystent głosowy do sauny domowej. Muzyka, światło, przypomnienia i odpowiedzi na pytania – głosem, po polsku i po angielsku.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F5F3EF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#181512" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/plus_jakarta_sans.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Przejdź do treści</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="Sauna Assistant">
+        <img src="img/logo.svg" alt="" width="36" height="36">
+        <span>Sauna Assistant</span>
+      </a>
+      <nav class="nav__links" id="menu" aria-label="Menu">
+        <a href="#features" data-i18n="nav.features">Funkcje</a>
+        <a href="#how" data-i18n="nav.how">Jak to działa</a>
+        <a href="#app" data-i18n="nav.app">Aplikacja</a>
+        <a href="#faq" data-i18n="nav.faq">Pytania</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="lang" type="button" id="lang" aria-label="English">EN</button>
+        <a class="btn btn--small" href="#join" data-i18n="nav.cta">Zapisz się</a>
+        <button class="burger" type="button" id="burger" aria-controls="menu" aria-expanded="false" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Asystent głosowy do sauny domowej</p>
+          <h1 data-i18n-html="hero.title">Powiedz „Hey&nbsp;Sauna”<br>Resztą zajmie się asystent</h1>
+          <p class="lead" data-i18n="hero.lead">Muzyka, światło, przypomnienia i odpowiedzi na pytania – głosem. Bez wychodzenia z ciepła i bez telefonu w gorącej saunie.</p>
+          <div class="hero__ctas">
+            <a class="btn" href="#join" data-i18n="hero.cta">Zapisz się na listę</a>
+            <a class="btn btn--ghost" href="#how" data-i18n="hero.cta2">Zobacz, jak działa</a>
+          </div>
+          <ul class="chips" aria-label="W skrócie" data-i18n-aria="hero.chips">
+            <li data-i18n="hero.chip1">Po polsku i po angielsku</li>
+            <li data-i18n="hero.chip2">Elektronika poza sauną</li>
+            <li data-i18n="hero.chip3">Tylko dla dorosłych (18+)</li>
+          </ul>
+        </div>
+
+        <!-- A sauna with a conversation playing in it (script.js runs the demo). -->
+        <figure class="scene" id="scene" style="--light: 1" aria-label="Przykładowa rozmowa z asystentem" data-i18n-aria="demo.scene">
+          <div class="scene__wall" aria-hidden="true"></div>
+          <div class="scene__lamp" aria-hidden="true"></div>
+          <div class="scene__bench" aria-hidden="true"></div>
+          <div class="scene__speaker" aria-hidden="true"><span></span></div>
+          <div class="scene__status" aria-hidden="true">
+            <span class="pill pill--music" id="music-pill">♪ <span data-i18n="demo.music">Muzyka gra</span></span>
+            <span class="pill pill--timer" id="timer-pill">⏱ <span id="timer-at">21:45</span></span>
+          </div>
+          <div class="chat" id="chat" aria-live="polite"></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURES ============================ -->
+    <section class="section" id="features">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="feat.eyebrow">Co potrafi</p>
+          <h2 data-i18n="feat.title">Wszystko, czego potrzebujesz na ławce – na jedno słowo</h2>
+        </header>
+        <div class="cards">
+          <article class="card reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4h0A2.5 2.5 0 0 1 4 13.5z"/><path d="M8.5 10h7M8.5 7.5h4"/></svg>
+            <h3 data-i18n="feat.talk.t">Rozmowa głosem</h3>
+            <p data-i18n="feat.talk.d">Pytaj o wszystko, po polsku lub po angielsku. Odpowiada krótko i naturalnym głosem, a w pół zdania możesz mu przerwać.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+            <h3 data-i18n="feat.music.t">Twoja muzyka</h3>
+            <p data-i18n="feat.music.d">Spotify na głośniku w saunie. Gdy rozmawiasz, muzyka płynnie cichnie, a potem wraca. Gdy głośnik się rozłączy, czeka na pauzie.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"/></svg>
+            <h3 data-i18n="feat.light.t">Światło</h3>
+            <p data-i18n="feat.light.d">„Przyciemnij do 20%”, „zgaś światło”. Oświetlenie Smart Life (Tuya) sterowane głosem albo w aplikacji.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2.5h5"/></svg>
+            <h3 data-i18n="feat.remind.t">Przypomnienia</h3>
+            <p data-i18n="feat.remind.d">„Przypomnij mi za 15 minut, żeby wyjść.” Przypomnienie zabrzmi o czasie – także w środku rozmowy i bez internetu.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h6M5 12h10M5 19h14"/><circle cx="15" cy="5" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            <h3 data-i18n="feat.routine.t">Własne polecenia</h3>
+            <p data-i18n="feat.routine.d">Jedno zdanie, kilka czynności. „Wychodzę z sauny” gasi światło i zatrzymuje muzykę. Wystarczy, że raz powiesz asystentowi, co ma robić.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 11v2M21 12h0"/></svg>
+            <h3 data-i18n="feat.wake.t">Zna Twój głos</h3>
+            <p data-i18n="feat.wake.d">Fraza „Hey Sauna” uczy się Twojej wymowy z nagrań zrobionych w saunie. Z czasem reaguje pewniej, także przy szumie pieca.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.5A5 5 0 0 1 21.5 19"/></svg>
+            <h3 data-i18n="feat.people.t">Każdy po swojemu</h3>
+            <p data-i18n="feat.people.d">Domownicy mają własne profile: język, głos asystenta i ulubione polecenia. Właściciel decyduje, kto dołącza.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3 data-i18n="feat.calm.t">Słucha tylko na zawołanie</h3>
+            <p data-i18n="feat.calm.d">Fraza jest rozpoznawana na urządzeniu. Dopiero gdy ją usłyszy, rozmowa trafia do chmury – i kończy się, gdy skończysz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== HOW IT WORKS ========================= -->
+    <section class="section section--tint" id="how">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="how.eyebrow">Jak to działa</p>
+          <h2 data-i18n="how.title">W gorącym pomieszczeniu tylko to, co musi tam być</h2>
+        </header>
+        <div class="how">
+          <!-- Cross-section: the sauna on the left, the wall, the outside on the right. -->
+          <svg class="diagram reveal" viewBox="0 0 560 340" role="img" aria-labelledby="diagram-title">
+            <title id="diagram-title" data-i18n="how.diagram">Schemat: mikrofon i głośnik w saunie, jednostka sterująca za ścianą, telefon i internet na zewnątrz</title>
+            <defs>
+              <linearGradient id="g-wood" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" class="wood-a"/><stop offset="1" class="wood-b"/>
+              </linearGradient>
+              <pattern id="g-slats" width="22" height="340" patternUnits="userSpaceOnUse">
+                <rect width="22" height="340" fill="url(#g-wood)"/>
+                <rect x="21" width="1" height="340" class="slat-line"/>
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="300" height="340" rx="18" fill="url(#g-slats)"/>
+            <rect x="0" y="250" width="300" height="22" class="bench"/>
+            <rect x="20" y="272" width="12" height="68" class="bench-leg"/>
+            <rect x="268" y="272" width="12" height="68" class="bench-leg"/>
+            <text x="22" y="34" class="dg-label" data-i18n="how.inside">Sauna</text>
+            <rect x="300" y="0" width="26" height="340" class="wall"/>
+            <text x="360" y="34" class="dg-label dg-label--out" data-i18n="how.outside">Na zewnątrz</text>
+
+            <!-- 1 mic -->
+            <g class="dg-item">
+              <rect x="226" y="92" width="16" height="32" rx="8" class="dg-dark"/>
+              <path d="M234 124v16h86" class="dg-cable"/>
+              <circle cx="206" cy="86" r="15" class="dg-badge"/><text x="206" y="91" class="dg-num">1</text>
+            </g>
+            <!-- 3 speaker -->
+            <g class="dg-item">
+              <rect x="70" y="150" width="62" height="86" rx="12" class="dg-dark"/>
+              <circle cx="101" cy="176" r="12" class="dg-cone"/>
+              <circle cx="101" cy="212" r="15" class="dg-cone"/>
+              <path d="M146 178a22 22 0 0 1 0 30M156 168a36 36 0 0 1 0 50" class="dg-waves"/>
+              <circle cx="58" cy="146" r="15" class="dg-badge"/><text x="58" y="151" class="dg-num">3</text>
+            </g>
+            <!-- 2 control unit -->
+            <g class="dg-item">
+              <rect x="350" y="116" width="96" height="58" rx="12" class="dg-box"/>
+              <circle cx="370" cy="145" r="4" class="dg-led"/>
+              <path d="M386 136h44M386 145h34M386 154h40" class="dg-lines"/>
+              <circle cx="458" cy="112" r="15" class="dg-badge"/><text x="458" y="117" class="dg-num">2</text>
+              <path d="M350 194 C 300 196, 220 200, 168 198" class="dg-bt"/>
+            </g>
+            <!-- 4 phone + cloud -->
+            <g class="dg-item">
+              <rect x="470" y="210" width="50" height="92" rx="10" class="dg-phone"/>
+              <rect x="477" y="220" width="36" height="66" rx="4" class="dg-screen"/>
+              <circle cx="495" cy="256" r="11" class="dg-knob"/>
+              <path d="M446 174 C 470 190, 482 196, 488 208" class="dg-dash"/>
+              <circle cx="532" cy="206" r="15" class="dg-badge"/><text x="532" y="211" class="dg-num">4</text>
+              <path d="M392 62a20 20 0 0 1 38-6 15 15 0 0 1 6 29h-46a12 12 0 0 1 2-23z" class="dg-cloud"/>
+              <path d="M398 112 L 404 92" class="dg-dash"/>
+            </g>
+          </svg>
+
+          <ol class="steps">
+            <li class="reveal">
+              <span class="steps__n">1</span>
+              <div><h3 data-i18n="how.s1.t">Mikrofon w saunie</h3>
+              <p data-i18n="how.s1.d">Do gorącego pomieszczenia trafia tylko przewodowy mikrofon. Kabel przechodzi przez ścianę.</p></div>
+            </li>
+            <li class="reveal">
+              <span class="steps__n">2</span>
+              <div><h3 data-i18n="how.s2.t">Jednostka sterująca za ścianą</h3>
+              <p data-i18n="how.s2.d">Mały komputer poza sauną, z dala od ciepła. Sam rozpoznaje „Hey Sauna” i dopiero wtedy łączy się z internetem.</p></div>
+            </li>
+            <li class="reveal">
+              <span class="steps__n">3</span>
+              <div><h3 data-i18n="how.s3.t">Głośnik Bluetooth w saunie</h3>
+              <p data-i18n="how.s3.d">Odpowiedzi i muzyka płyną z głośnika przeznaczonego do sauny. Po włączeniu łączy się sam.</p></div>
+            </li>
+            <li class="reveal">
+              <span class="steps__n">4</span>
+              <div><h3 data-i18n="how.s4.t">Aplikacja na telefon</h3>
+              <p data-i18n="how.s4.d">Konfiguracja krok po kroku przez Bluetooth, potem wygodnie przez domowe Wi-Fi.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== APP ============================== -->
+    <section class="section" id="app">
+      <div class="wrap app">
+        <div class="app__copy reveal">
+          <p class="eyebrow" data-i18n="app.eyebrow">Aplikacja</p>
+          <h2 data-i18n="app.title">Głośność jak w starym radiu</h2>
+          <p class="lead" data-i18n="app.lead">W aplikacji kręcisz pokrętłem od 1 do 10. Asystent nigdy nie przekroczy ustawionego limitu, a po włączeniu głośnik startuje cicho.</p>
+          <ul class="ticks">
+            <li data-i18n="app.l1">Konfiguracja krok po kroku: Wi-Fi, głośnik, Gemini</li>
+            <li data-i18n="app.l2">Głos i język asystenta do wyboru, z odsłuchem w saunie</li>
+            <li data-i18n="app.l3">Profile dla domowników i nauka frazy „Hey Sauna”</li>
+            <li data-i18n="app.l4">Jasny i ciemny wygląd, po polsku i po angielsku</li>
+          </ul>
+        </div>
+        <div class="phone reveal" role="group" aria-label="Aplikacja Sauna Assistant" data-i18n-aria="app.phone">
+          <div class="phone__screen">
+            <p class="phone__kicker" data-i18n="app.kicker">GŁOŚNOŚĆ</p>
+            <p class="phone__title" data-i18n="app.screen">Głośnik w saunie</p>
+            <svg class="knob" id="knob" viewBox="0 0 200 200" role="slider" tabindex="0"
+                 aria-valuemin="1" aria-valuemax="10" aria-valuenow="6" aria-label="Głośność" data-i18n-aria="app.knob"></svg>
+            <p class="phone__value"><span data-i18n="app.level">Poziom</span> <strong id="knob-value">6</strong> / 10</p>
+            <p class="phone__hint" data-i18n="app.try">Spróbuj: przeciągnij pokrętło albo użyj strzałek</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== FAQ ============================== -->
+    <section class="section section--tint" id="faq">
+      <div class="wrap faq">
+        <header class="section__head reveal">
+          <p class="eyebrow" data-i18n="faq.eyebrow">Pytania</p>
+          <h2 data-i18n="faq.title">Dobrze wiedzieć</h2>
+        </header>
+        <div class="faq__list">
+          <details class="reveal">
+            <summary data-i18n="faq.q1">Czego potrzebuję?</summary>
+            <p data-i18n="faq.a1">Domowego Wi-Fi, głośnika Bluetooth przeznaczonego do sauny, telefonu z Androidem do konfiguracji i konta Google – asystent rozmawia dzięki Google Gemini. Do muzyki: Spotify Premium.</p>
+          </details>
+          <details class="reveal">
+            <summary data-i18n="faq.q2">Czy asystent podsłuchuje cały czas?</summary>
+            <p data-i18n="faq.a2">Nie. Dopóki nie usłyszy „Hey Sauna”, nic nie wysyła – fraza jest rozpoznawana na urządzeniu. Dopiero rozmowa trafia do Google Gemini. W UE Google nie wykorzystuje tych rozmów do ulepszania swoich produktów.</p>
+          </details>
+          <details class="reveal">
+            <summary data-i18n="faq.q3">Czy odpowie na pytania o pogodę i wiadomości?</summary>
+            <p data-i18n="faq.a3">Tak, gdy do konta Gemini podpięte są płatności (płatny plan Google). Bez nich asystent odpowiada z własnej wiedzy, która może być nieaktualna.</p>
+          </details>
+          <details class="reveal">
+            <summary data-i18n="faq.q4">Kto może korzystać?</summary>
+            <p data-i18n="faq.a4">Tylko osoby dorosłe (18+). Asystent działa na Google Gemini, którego warunki nie dopuszczają osób poniżej 18 lat. Nie pozwalaj dzieciom z nim rozmawiać.</p>
+          </details>
+          <details class="reveal">
+            <summary data-i18n="faq.q5">W jakich językach rozmawia?</summary>
+            <p data-i18n="faq.a5">Po polsku i po angielsku. Odpowiada w języku, w którym mówisz, albo zawsze w wybranym.</p>
+          </details>
+          <details class="reveal">
+            <summary data-i18n="faq.q6">Co, jeśli zniknie internet?</summary>
+            <p data-i18n="faq.a6">Asystent powie, że nie ma połączenia, i spróbuje ponownie, gdy go zawołasz. Ustawione przypomnienia zabrzmią o czasie także bez internetu.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== JOIN ============================= -->
+    <section class="section join" id="join">
+      <div class="wrap"><div class="join__box reveal">
+        <div>
+          <h2 data-i18n="join.title">Chcesz Sauna Assistant u siebie?</h2>
+          <p data-i18n="join.lead">Zostaw e-mail – odezwiemy się, gdy ruszy sprzedaż. Bez spamu, tylko ta jedna wiadomość.</p>
+        </div>
+        <form class="join__form" id="join-form" novalidate>
+          <label class="sr-only" for="email" data-i18n="join.label">Twój e-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="ty@przyklad.pl" data-i18n-placeholder="join.placeholder">
+          <button class="btn" type="submit" data-i18n="join.button">Zapisz mnie</button>
+          <p class="join__msg" id="join-msg" role="status"></p>
+        </form>
+      </div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="brand" href="#top"><img src="img/logo.svg" alt="" width="28" height="28"><span>Sauna Assistant</span></a>
+      <p class="footer__note" data-i18n="footer.adults">Tylko dla dorosłych (18+).</p>
+      <p class="footer__note" data-i18n="footer.tm">Google Gemini, Spotify i Smart Life to znaki towarowe ich właścicieli. Sauna Assistant nie jest z nimi powiązany.</p>
+      <p class="footer__note">© <span id="year">2026</span> Sauna Assistant</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
